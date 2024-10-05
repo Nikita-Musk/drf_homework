@@ -21,7 +21,7 @@ class Lesson(models.Model):
     description = models.TextField(
         blank=True, null=True, verbose_name="Описание урока"
     )
-    video_url = models.URLField()
+    video_url = models.URLField(verbose_name='Ссылка на видео', blank=True, null=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='Курсы', blank=True, null=True)
 
     def __str__(self):
