@@ -5,7 +5,8 @@
     "fields": {
       "name": "Programming",
       "preview": "",
-      "description": "hellow world"
+      "description": "hellow world",
+      "owner": null
     }
   },
   {
@@ -14,7 +15,48 @@
     "fields": {
       "name": "backend programming",
       "preview": "",
-      "description": null
+      "description": null,
+      "owner": null
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 4,
+    "fields": {
+      "name": "Криптовалюта",
+      "preview": "",
+      "description": null,
+      "owner": 6
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 5,
+    "fields": {
+      "name": "Продажа крипты 4",
+      "preview": "",
+      "description": "крипта 3",
+      "owner": 8
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 6,
+    "fields": {
+      "name": "Продажа крипты 4",
+      "preview": "",
+      "description": "крипта 3",
+      "owner": 8
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 7,
+    "fields": {
+      "name": "Продажа крипты 4",
+      "preview": "",
+      "description": "крипта 3",
+      "owner": 8
     }
   },
   {
@@ -25,7 +67,8 @@
       "preview": "",
       "description": "Kyrs PHP",
       "video_url": null,
-      "course": 2
+      "course": 2,
+      "owner": null
     }
   },
   {
@@ -36,7 +79,8 @@
       "preview": "",
       "description": "Lesson PHP 2.0",
       "video_url": null,
-      "course": 2
+      "course": 2,
+      "owner": null
     }
   },
   {
@@ -47,7 +91,8 @@
       "preview": "",
       "description": "Lesson PHP 3.0",
       "video_url": null,
-      "course": 2
+      "course": 2,
+      "owner": null
     }
   },
   {
@@ -58,7 +103,32 @@
       "preview": "",
       "description": "Lesson Django 1",
       "video_url": null,
-      "course": 3
+      "course": 3,
+      "owner": null
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 6,
+    "fields": {
+      "name": "Продажа крипты",
+      "preview": "",
+      "description": "крипта",
+      "video_url": null,
+      "course": 3,
+      "owner": 6
+    }
+  },
+  {
+    "model": "materials.lesson",
+    "pk": 9,
+    "fields": {
+      "name": "Продажа крипты 3",
+      "preview": "",
+      "description": "крипта 3",
+      "video_url": null,
+      "course": 3,
+      "owner": 8
     }
   }
 ]

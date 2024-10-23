@@ -1,28 +1,154 @@
 [
-    {
-        "model": "users.user",
-        "pk": 1,
-        "fields": {
-            "username": "user1",
-            "email": "user1@gmail.com",
-            "first_name": "Andrw",
-            "last_name": "Filips",
-            "is_active": true,
-            "is_staff": false,
-            "is_superuser": false
-        }
-    },
-    {
-        "model": "users.user",
-        "pk": 2,
-        "fields": {
-            "username": "user2",
-            "email": "user2@gmail.com",
-            "first_name": "Slava",
-            "last_name": "Afonin",
-            "is_active": true,
-            "is_staff": false,
-            "is_superuser": false
-        }
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test1",
+      "first_name": "Andrw",
+      "last_name": "Filips",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-20T21:45:19.847Z",
+      "email": "user1@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
     }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user2",
+      "first_name": "Slava",
+      "last_name": "Afonin",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-20T21:45:19.850Z",
+      "email": "user2@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "test",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test4",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-23T16:48:20.798Z",
+      "email": "test4@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$VaBiF3lC07HDlTL7NHYzHU$GyddwJkQe0ppz3TMzPVseEVD5S3ZAJgRM3sAJ5vy4qE=",
+      "last_login": "2024-10-23T16:58:54.629Z",
+      "is_superuser": true,
+      "username": "",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-10-23T16:58:41.381Z",
+      "email": "admin@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$FypOEc2Ui2lXABeoGyOEFW$5uPgAvDzRphvR0OHy10PpkWD8x318Y7XltBIwNytuv4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test5",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-23T17:01:58Z",
+      "email": "test6@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$OhfJpSYr7H2ccTtK3ScGg4$Jdfb2rlrSN0AyDiR9m6m1/I2KOwkYqTks/8lsDQBWe0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test7",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-23T17:43:24.082Z",
+      "email": "test7@gmail.com",
+      "phone": null,
+      "town": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "payment_date": "2024-10-01T00:00:00Z",
+      "paid_course": 2,
+      "paid_lesson": null,
+      "amount": "115512.00",
+      "payment_method": "cash"
+    }
+  },
+  {
+    "model": "users.payment",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "payment_date": "2023-03-02T00:00:00Z",
+      "paid_course": null,
+      "paid_lesson": 3,
+      "amount": "4123.00",
+      "payment_method": "transfer"
+    }
+  }
 ]
