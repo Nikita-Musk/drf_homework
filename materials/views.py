@@ -1,4 +1,4 @@
-from django.template.context_processors import request
+from materials.tasks import send_info_about_course_update
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
                                      UpdateAPIView, get_object_or_404)
@@ -22,6 +22,11 @@ class CourseViewSet(ModelViewSet):
         course = serializer.save()
         course.owner = self.request.user
         course.save()
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        send_info_about_course_update.delay(course.id)
+        return course
 
     def get_permissions(self):
         if self.action == "create":
