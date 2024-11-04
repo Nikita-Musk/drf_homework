@@ -11,7 +11,7 @@ from users.models import User
 
 @shared_task
 def send_info_about_course_update(course_pk):
-    """ Отправляет сообщение об обновлении курса подписанным пользователям. """
+    """Отправляет сообщение об обновлении курса подписанным пользователям."""
     course = Course.objects.filter(id=course_pk).first()
     users = User.objects.all()
     for user in users:
@@ -28,7 +28,7 @@ def send_info_about_course_update(course_pk):
 
 @shared_task
 def check_last_login():
-    """ Проверяет активность пользователя. Блокирует при неактивности более месяца. """
+    """Проверяет активность пользователя. Блокирует при неактивности более месяца."""
     today = timezone.now()
     month_ago = today - timedelta(days=30)
     inactive_users = User.objects.filter(last_login__gte=month_ago, is_active=True)

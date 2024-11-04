@@ -6,7 +6,10 @@ from materials.validators import validate_video_url
 
 
 class LessonSerializer(ModelSerializer):
-    video_url = URLField(validators=[validate_video_url], required=False, allow_null=True)
+    video_url = URLField(
+        validators=[validate_video_url], required=False, allow_null=True
+    )
+
     class Meta:
         model = Lesson
         fields = "__all__"
@@ -21,7 +24,7 @@ class CourseSerializer(ModelSerializer):
         return Lesson.objects.filter(course=obj).count()
 
     def get_is_subscribed(self, obj):
-        user = self.context['request'].user
+        user = self.context["request"].user
         if user.is_authenticated:
             return Subscription.objects.filter(user=user, course=obj).exists()
         return False
@@ -29,6 +32,7 @@ class CourseSerializer(ModelSerializer):
     class Meta:
         model = Course
         fields = "__all__"
+
 
 class SubscriptionSerializer(ModelSerializer):
     class Meta:

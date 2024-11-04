@@ -1,7 +1,4 @@
-from tarfile import data_filter
-
 from django.urls import reverse
-
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -12,16 +9,16 @@ from users.models import User
 class LessonsTestCase(APITestCase):
 
     def setUp(self):
-        self.user = User.objects.create(email='test@gmail.com')
-        self.course = Course.objects.create(name='Проверочный курс')
-        self.lesson = Lesson.objects.create(name='Тестовый урок 1', course=self.course, owner=self.user)
+        self.user = User.objects.create(email="test@gmail.com")
+        self.course = Course.objects.create(name="Проверочный курс")
+        self.lesson = Lesson.objects.create(
+            name="Тестовый урок 1", course=self.course, owner=self.user
+        )
         self.client.force_authenticate(user=self.user)
 
     def test_lesson_create(self):
         url = reverse("materials:lesson-create")
-        data = {
-            "name": "Тестовый урок 2"
-        }
+        data = {"name": "Тестовый урок 2"}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Lesson.objects.all().count(), 2)
@@ -35,9 +32,7 @@ class LessonsTestCase(APITestCase):
 
     def test_lesson_update(self):
         url = reverse("materials:lesson-update", args=(self.lesson.pk,))
-        data = {
-            "name": "Измененное название урока"
-        }
+        data = {"name": "Измененное название урока"}
         response = self.client.patch(url, data)
         data = response.json()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -65,27 +60,30 @@ class LessonsTestCase(APITestCase):
                     "preview": None,
                     "description": None,
                     "course": self.course.pk,
-                    "owner": self.user.pk
+                    "owner": self.user.pk,
                 }
-            ]}
+            ],
+        }
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(data, result)
 
+
 class SubscriptionsTestCase(APITestCase):
     def setUp(self):
-        self.user = User.objects.create(email='test@gmail.com')
-        self.course = Course.objects.create(name='Проверочный курс')
-        self.lesson = Lesson.objects.create(name='Тестовый урок 1', course=self.course, owner=self.user)
-        self.subscription = Subscription.objects.create(user=self.user, course=self.course)
+        self.user = User.objects.create(email="test@gmail.com")
+        self.course = Course.objects.create(name="Проверочный курс")
+        self.lesson = Lesson.objects.create(
+            name="Тестовый урок 1", course=self.course, owner=self.user
+        )
+        self.subscription = Subscription.objects.create(
+            user=self.user, course=self.course
+        )
         self.client.force_authenticate(user=self.user)
 
     def test_subscription(self):
         url = reverse("materials:subscribe")
-        data = {
-            "course": self.course.pk
-        }
+        data = {"course": self.course.pk}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data.get('message'), 'подписка удалена')
-
+        self.assertEqual(response.data.get("message"), "подписка удалена")
