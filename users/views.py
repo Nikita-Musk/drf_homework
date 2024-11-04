@@ -9,7 +9,8 @@ from rest_framework.viewsets import ModelViewSet
 from users.models import Payment, User
 from users.serilizers import (PaymentSerializer, RegisterSerializer,
                               UserSerializer)
-from users.services import create_stripe_product, create_stripe_price, create_stripe_session
+from users.services import (create_stripe_price, create_stripe_product,
+                            create_stripe_session)
 
 
 class UserViewSet(ModelViewSet):
@@ -54,6 +55,7 @@ class UserUpdateAPIView(UpdateAPIView):
 
 class UserDeleteAPIView(DestroyAPIView):
     queryset = User.objects.all()
+
 
 class PaymentCreateAPIView(CreateAPIView):
     serializer_class = PaymentSerializer
